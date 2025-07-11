@@ -63,7 +63,6 @@ def plot_lap_times(laps1, laps2, d1, d2):
     return fig
 
 def summarize_battle(laps1, laps2, d1, d2):
-    # Get average lap times
     avg1 = laps1['LapTime'].mean().total_seconds()
     avg2 = laps2['LapTime'].mean().total_seconds()
 
@@ -183,7 +182,6 @@ def format_podium_layout(results, country_flags):
 
 
 def build_lap_delta_animation(laps1, laps2, d1, d2):
-    # Step 1: Prepare data
     df1 = laps1[['LapNumber', 'LapTime', 'Compound']].rename(columns={
         'LapTime': f'LapTime_{d1}', 'Compound': f'Compound_{d1}'
     })
@@ -199,11 +197,7 @@ def build_lap_delta_animation(laps1, laps2, d1, d2):
         f"{d1} Tyre: " + df[f'Compound_{d1}'] + "<br>" +
         f"{d2} Tyre: " + df[f'Compound_{d2}']
     )
-
-    # Step 2: Create base figure
     fig = go.Figure()
-
-    # Add static traces for full context
     fig.add_trace(go.Scatter(
         x=df['LapNumber'],
         y=df['Delta'],
@@ -213,7 +207,6 @@ def build_lap_delta_animation(laps1, laps2, d1, d2):
         showlegend=False
     ))
 
-    # Step 3: Build animation frames
     frames = []
     for i in range(len(df)):
         frame_data = go.Scatter(
@@ -230,7 +223,6 @@ def build_lap_delta_animation(laps1, laps2, d1, d2):
 
     fig.frames = frames
 
-    # Step 4: Add slider & animation controls
     fig.update_layout(
         title=f"Lap Time Delta Animation: {d1} vs {d2}",
         xaxis_title="LapNumber",
@@ -277,7 +269,6 @@ def build_ghost_lap_animation(session, d1, d2):
         'Frame': range(min_len)
     })
 
-    # Melt to tidy format
     df_melted = df.melt(
         id_vars=['Distance', 'Frame'],
         value_vars=[f'Speed_{d1}', f'Speed_{d2}'],
@@ -286,7 +277,6 @@ def build_ghost_lap_animation(session, d1, d2):
 
     df_melted['Driver'] = df_melted['Driver'].apply(lambda x: x.split('_')[1])
 
-    # Add ghost car dot + line trail
     fig = px.scatter(
         df_melted,
         x='Distance',

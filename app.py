@@ -37,7 +37,7 @@ try:
     </div>
     """, unsafe_allow_html=True)
     components.html(format_podium_layout(session.results.head(3), country_flags), height=300)
-    st.balloons()  # 🎉 Celebration for the podium moment!
+    st.balloons()  
 
 
 
