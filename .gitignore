@@ -1,7 +1,16 @@
+# Virtual environment
 venv/
+
+# Python bytecode
 __pycache__/
 *.pyc
+
+# FastF1 cache
 .cache/
-.cache/*
+cache/
+
+# macOS files
 .DS_Store
-*.envcache/
+
+# Env files (optional, in case you use them)
+*.env
