@@ -16,6 +16,16 @@
 
 ---
 
+## 🖼️ Demo
+
+### 🏁 Battle Summary
+![Battle Summary](images/BattleSummary.png)
+
+### 👻 Ghost Lap Animation
+<img src="images/GhostLap.png" width="600"/>
+
+---
+
 ## 🧰 Installation
 
 ```bash
