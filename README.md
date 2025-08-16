@@ -26,11 +26,7 @@
 
 ---
 
-## 🧰 Installation
+## 🧰 Check out the site
 
 ```bash
-git clone https://github.com/Sandeeptha-NotAbot/f1Duel.git
-cd f1Duel
-python3 -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-pip install -r requirements.txt
+https://f1duel.streamlit.app/
