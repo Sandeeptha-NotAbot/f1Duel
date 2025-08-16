@@ -4,6 +4,11 @@ from utils import get_driver_info, load_session_data, plot_lap_times, summarize_
 import streamlit.components.v1 as components
 from utils import build_lap_delta_animation
 from utils import build_ghost_lap_animation
+import os
+
+if not os.path.exists('cache'):
+    os.makedirs('cache')
+
 
 fastf1.Cache.enable_cache('cache')  # Save session data locally
 
